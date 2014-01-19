@@ -134,3 +134,20 @@ endfunction
   " autocmd!
   " autocmd BufWinEnter * call ResCur()
 " augroup END
+
+# For Function
+func! marslofunc#PylintCheck()                                                 " Run pylint
+  let mp = &makeprg
+  let ef = &errorformat
+  let exeFile = '"' . expand("%:t") . '"'
+  setlocal makeprg=pylint\ --reports=n\ --output-format=parseable
+  set efm=%A%f:%l:\ [%t%.%#]\ %m,%Z%p^^,%-C%.%#
+  silent make "%:p"
+  copen
+  let &makeprg     = mp
+  let &errorformat = ef
+endfunc
+
+func! MaximizeWindow()                                            " Make vim maximize while it startup
+  silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
+endfunc
