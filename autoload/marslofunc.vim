@@ -1,3 +1,14 @@
+" =============================================================================
+"       FileName: marslofunc.vim
+"         Author: Marslo
+"          Email: marslo.jiao@gmail.com
+"        Created: 2014-01-19 18:41:02
+"        Version: 0.0.1
+"     LastChange: 2014-01-19 18:41:02
+"        History:
+"                 0.0.1 | Marslo | Inspired from http://stackoverflow.com/a/21197543/2940319
+" =============================================================================
+
 function! marslofunc#OpenCMD()
   if has('win32') || has('win95') || has('win64')
     if 'java' == &filetype
