@@ -146,7 +146,6 @@ endfunction
   " autocmd BufWinEnter * call ResCur()
 " augroup END
 
-# For Function
 func! marslofunc#PylintCheck()                                                 " Run pylint
   let mp = &makeprg
   let ef = &errorformat
