@@ -14,7 +14,8 @@ function! marslofunc#OpenCMD()
     if 'java' == &filetype
       let com = '!cmd /c start "C:\Program Files\JPSoft\TCCLE13x64\tcc.exe" /d "' . expand('%:p:h') .'"'
     else
-      let com = '!cmd /c start C:\Marslo\Tools\Software\System\CommandLine\Console2\Console.exe -d "'. expand('%:p:h') . '"'
+      let com = '!cmd /c start C:\Marslo\Tools\Softwares\Windows\Console\Console2\Console.exe -d "' . expand('%:p:h') . '"'
+      " let com = '!cmd /c start C:\Marslo\Tools\Software\System\CommandLine\Console2\Console.exe -d "'. expand('%:p:h') . '"'
     endif
   else
     let com = '!/usr/bin/gnome-terminal --working-directory=' . expand('%:p:h')
@@ -28,7 +29,7 @@ endfunction
 function! marslofunc#OpenFoler()
   let folderpath = expand('%:p:h')
   if has('win32') || has('win95') || has('win64')
-    silent execute '!C:\Windows\explorer.exe "' . folderpath . '"'
+    silent execute '!C:\Windows\SysWOW64\explorer.exe "' . folderpath . '"'
   else
     silent execute '!nautilus "' . folderpath . '"'
   endif
@@ -161,3 +162,9 @@ endfunc
 func! MaximizeWindow()                                            " Make vim maximize while it startup
   silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
 endfunc
+
+function! marslofunc#MyFoldText()
+  let line = getline(v:foldstart)
+  let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
+  return v:folddashes . sub
+endfunction
