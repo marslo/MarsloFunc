@@ -9,6 +9,27 @@
 "                 0.0.1 | Marslo | Inspired from http://stackoverflow.com/a/21197543/2940319
 " =============================================================================
 
+" function! marslofunc#callit()
+  " let tcc='~/.vimrc'
+  " if 0 == marslofunc#ValidFile(tcc)
+    " echo tcc . ' cannot be found'
+  " else
+    " echo tcc . ' can be found'
+  " endif
+" endfunction
+
+function! marslofunc#ValidFile()
+  " echo a:thepath
+  " if filereadable(a:thepath)
+  if filereadable('~/.vimrc')
+    echo '1'
+    " return 1
+  else
+    echo '0'
+    " return 0
+  endif
+endfunction
+
 function! marslofunc#OpenCMD()
   if has('win32') || has('win95') || has('win64')
     let tcc='C:\Program Files\JPSoft\TCCLE13x64\tcc.exe'
@@ -26,10 +47,6 @@ function! marslofunc#OpenCMD()
   echo 'Goto "' . expand('%:p:h') . '" in command line'
   silent execute saveit
   silent execute com
-endfunction
-
-function! marslofunc#ValidFile(text)
-  echo a:text
 endfunction
 
 function! marslofunc#OpenFoler()
