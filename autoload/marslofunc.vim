@@ -191,3 +191,12 @@ function! marslofunc#MyFoldText()
   let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
   return v:folddashes . sub
 endfunction
+
+" Inspired from Practical Vim [P213]
+" Search for the Current Selection
+function! marslofunc#VSetSearch()
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, '/|'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
