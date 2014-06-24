@@ -208,3 +208,12 @@ function! marslofunc#ResCur()
     return 1
   endif
 endfunction
+
+" Diff with unsaved file. Inspired from http://ppwwyyxx.com/misc/vim.html
+" function! marslofunc#DiffWithSaved()
+  " let ft = &filetype
+  " diffthis
+  " vnew | r # | normal! 1Gdd
+  " diffthis
+  " exec "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . ft
+" endfunction
