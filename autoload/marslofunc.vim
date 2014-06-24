@@ -200,3 +200,11 @@ function! marslofunc#VSetSearch()
   let @/ = '\V' . substitute(escape(@s, '/|'), '\n', '\\n', 'g')
   let @s = temp
 endfunction
+
+" Remember Cursor position in last time, inspired from http://vim.wikia.com/wiki/VimTip80
+function! marslofunc#ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
