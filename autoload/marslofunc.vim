@@ -89,7 +89,7 @@ function! marslofunc#GetVim()                                                   
     if filereadable(vimgitcfg)
       echo 'vimsrc has exists at ' . expand(vimsrc)
     else
-      execute 'silent !git clone git@github.com:b4winckler/vim.git "' . expand(vimsrc) . '"'
+      execute 'silent !git clone git@github.com:vim-jp/vim.git "' . expand(vimsrc) . '"'
     end
   endif
 endfunction
