@@ -52,6 +52,18 @@ function! marslofunc#OpenCMD()
   silent execute com
 endfunction
 
+function! marslofunc#OpenCygwin()
+  let cygexe = '!C:\Marslo\MyProgramFiles\cygwin64\bin\mintty.exe'
+  let cygicon = 'C:\Marslo\MyProgramFiles\cygwin64\Cygwin-Terminal.ico'
+  " let cygcmd = '/bin/bash -lc ' . "'" . 'export STARTIN=$(echo $(/bin/cygpath "'. expand('%:p:h') . '")); exec /bin/bash' . "'"
+  let cygcmd = '/bin/bash -lc ' . "'" . 'export STARTIN=$^(echo $^(/bin/cygpath ^"'. expand('%:p:h') . '^"^)^); exec /bin/bash' . "'"
+  let opencyg = cygexe . ' -i ' . cygicon . ' ' . cygcmd
+
+  echo 'Goto "' . expand('%:p:h') . '" in cygwin'
+  silent execute opencyg
+  " execute '!C:\Marslo\MyProgramFiles\cygwin64\bin\mintty.exe /bin/bash -lc ' . "'" . 'export STARTIN=$^(echo $^(/bin/cygpath ^"C:\Marslo\MyProgramFiles\Vim\vim80^"^)^); exec /bin/bash' . "'"
+endfunction
+
 function! marslofunc#OpenFoler()
   let folderpath = expand('%:p:h')
   if has('win32') || has('win95') || has('win64')
