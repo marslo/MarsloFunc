@@ -97,6 +97,10 @@ function! marslofunc#GetVundle()                                                
   endif
 endfunction
 
+"
+" call in .vimrc
+" command! GetVim :call marslofunc#GetVim()<CR>
+"
 function! marslofunc#GetVim()                                                      " Get vim from: git clone git@github.com:b4winckler/vim.git
   if has('unix')
     let vimsrc='~/.vim/vimsrc'
@@ -209,6 +213,13 @@ endfunction
 
 " Inspired from Practical Vim [P213]
 " Search for the Current Selection
+"
+" call in .vimrc:
+" xnoremap * :<C-u>call marslofunc#VSetSearch()<CR>/<C-R>=@/<CR><CR>
+" xnoremap # :<C-u>call marslofunc#VSetSearch()<CR>?<C-R>=@/<CR><CR>
+" 
+" @see also https://vim.fandom.com/wiki/Search_for_visually_selected_text
+"
 function! marslofunc#VSetSearch()
   let temp = @s
   norm! gv"sy
